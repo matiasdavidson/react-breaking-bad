@@ -1,0 +1,46 @@
+.Home {
+	width: 100%;
+	min-height: calc(100vh - 60px);
+	background: url("../../images/bb-wallpaper.jpg"), #1b1b25;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+
+	color: #ffffff;
+
+	display: grid;
+	grid-template: 1fr / 100px 300px 1fr 100px;
+	grid-template-areas: ". text image .";
+	align-items: center;
+	justify-items: center;
+}
+
+.col-img {
+	grid-area: image;
+}
+
+.col-img img {
+	width: 100%;
+}
+
+.col-text {
+	grid-area: text;
+}
+
+.col-text img {
+	margin-bottom: 20px;
+}
+
+.button {
+	-webkit-box-shadow: 2px 5px 15px -7px #000000;
+	box-shadow: 2px 5px 15px -7px #000000;
+}
+
+.breaking-bad-logo {
+	width: 200px;
+	height: auto;
+}
+
+.walter-sitting {
+	width: 300px !important;
+	height: auto;
+}
