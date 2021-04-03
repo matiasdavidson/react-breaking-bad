@@ -55,7 +55,7 @@ class Badges extends React.Component {
 			<React.Fragment>
 				<div className="Badges">
 					<div className="Badges__hero">
-						<h1>Characetrs</h1>
+						<h1>Characters</h1>
 					</div>
 				</div>
 
