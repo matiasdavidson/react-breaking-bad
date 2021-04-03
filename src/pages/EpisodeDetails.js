@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../components/styles/BadgeDetails.css";
-import Badge from "../components/Badge";
+import EpisodeBadge from "../components/EpisodeBadge";
 
 function useIncreaseCount(max) {
 	const [count, setCount] = React.useState(0);
@@ -14,7 +14,7 @@ function useIncreaseCount(max) {
 	return [count, setCount];
 }
 
-function BadgeDetails(props) {
+function EpisodeDetalis(props) {
 	const [count, setCount] = useIncreaseCount(4);
 
 	const badge = props.badge;
@@ -28,7 +28,7 @@ function BadgeDetails(props) {
 			<div className="container">
 				<div className="row">
 					<div className="col">
-						<Badge badge={badge[0]} />
+						<EpisodeBadge badge={badge[0]} />
 					</div>
 				</div>
 			</div>
@@ -36,4 +36,4 @@ function BadgeDetails(props) {
 	);
 }
 
-export default BadgeDetails;
+export default EpisodeDetalis;

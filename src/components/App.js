@@ -4,9 +4,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../pages/Home";
 import Badges from "../pages/Badges";
-import BadgeNew from "../pages/BadgeNew";
+import Episodes from "../pages/Episodes";
+import EpisodeDetalisCointainer from "../pages/EpisodeDetailsContainer";
 import BadgeDetailsContainer from "../pages/BadgeDetailsContainer";
-import BadgeEdit from "../pages/BadgeEdit";
 import NotFound from "../pages/NotFound";
 
 function App() {
@@ -16,13 +16,18 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/badges" component={Badges} />
-					<Route exact path="/badges/new" component={BadgeNew} />
 					<Route
 						exact
-						path="/badges/:badgeId"
+						path="/badges/:char_id"
 						component={BadgeDetailsContainer}
 					/>
-					<Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
+					<Route exact path="/episodes" component={Episodes} />
+					<Route
+						exact
+						path="/episodes/:episode_id"
+						component={EpisodeDetalisCointainer}
+					/>
+
 					<Route component={NotFound} />
 				</Switch>
 			</Layout>

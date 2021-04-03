@@ -2,39 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import notFoundImage from "../images/character-not-found.png";
 
-import "../components/styles/BadgesList.css";
+import "../components/styles/EpisodesList.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init();
 
-class BadgesListItem extends React.Component {
+class EpisodesListItem extends React.Component {
 	render() {
 		return (
 			<div className="BadgesListItem card box box1" data-aos="fade-up">
 				<div>
 					<div className="mb-4">
 						<div className="title">
-							<strong className="card-title">{this.props.badge.name}</strong>{" "}
-							AKA{" "}
-							<strong className="card-title">
-								{this.props.badge.nickname}
-							</strong>
+							<strong className="card-title">{this.props.badge.title} </strong>
 						</div>
 						<br />
 						<div className="card-texts">
-							<span>Birthday: {this.props.badge.birthday}</span>
-							<br />
-							{this.props.badge.occupation[0]}
-							{this.props.badge.occupation.length > 1 &&
-								` and ${this.props.badge.occupation[1]}`}
-							<br />
+							<span>Season {this.props.badge.season}</span> <br></br>
+							<span>Air date: {this.props.badge.air_date}</span>
 						</div>
 					</div>
-					<img
-						src={this.props.badge.img}
-						className="profile-pic"
-						alt="Profile picture"
-					/>
 				</div>
 				<span className="mt-2 pb-2">Click to find out more!</span>
 			</div>
@@ -48,10 +35,7 @@ function useSearchBadges(badges) {
 
 	React.useMemo(() => {
 		const result = badges.filter((badge) => {
-			return (
-				`${badge.name}`.toLowerCase().includes(query.toLowerCase()) ||
-				`${badge.nickname}`.toLowerCase().includes(query.toLowerCase())
-			);
+			return `${badge.title}`.toLowerCase().includes(query.toLowerCase());
 		});
 
 		setFilteredBadges(result);
@@ -60,7 +44,7 @@ function useSearchBadges(badges) {
 	return { query, setQuery, filteredBadges };
 }
 
-function BadgesList(props) {
+function EpisodesList(props) {
 	const badges = props.badges;
 
 	const { query, setQuery, filteredBadges } = useSearchBadges(badges);
@@ -69,7 +53,7 @@ function BadgesList(props) {
 		return (
 			<div className="gen-container">
 				<div className="form-group pt-4 pb-4">
-					<label>Filter Characters</label>
+					<label>Filter Episodes</label>
 					<input
 						type="text"
 						className="form-control"
@@ -82,9 +66,8 @@ function BadgesList(props) {
 
 				<div className="not-found">
 					<h3 className="mt-4 mb-4">
-						No characters were found. Are you sure that{" "}
-						<strong>"{query}"</strong> is what you are looking for? You can
-						enter either real names or nicknames here.
+						No episodes were found. Are you sure that <strong>"{query}"</strong>{" "}
+						is what you are looking for? You can enter episodes names only.
 					</h3>
 					<img
 						src={notFoundImage}
@@ -102,7 +85,7 @@ function BadgesList(props) {
 	return (
 		<div className="BadgesList quotes">
 			<div className="form-group pb-4 pt-4">
-				<label>Filter Characters</label>
+				<label>Filter Episodes</label>
 				<input
 					type="text"
 					className="form-control"
@@ -116,12 +99,15 @@ function BadgesList(props) {
 			<ul className="list-unstyled">
 				{filteredBadges.map((badge) => {
 					return (
-						<li key={badge.char_id}>
+						<li key={badge.episode_id}>
 							<Link
 								className="text-reset text-decoration-none"
-								to={{ pathname: `/badges/${badge.char_id}`, id: badge.char_id }}
+								to={{
+									pathname: `/episodes/${badge.episode_id}`,
+									id: badge.episode_id,
+								}}
 							>
-								<BadgesListItem badge={badge} />
+								<EpisodesListItem badge={badge} />
 							</Link>
 						</li>
 					);
@@ -131,4 +117,4 @@ function BadgesList(props) {
 	);
 }
 
-export default BadgesList;
+export default EpisodesList;

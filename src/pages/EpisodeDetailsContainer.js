@@ -1,10 +1,10 @@
 import React from "react";
 
-import BadgeDetails from "./BadgeDetails";
+import EpisodeDetails from "./EpisodeDetails";
 import PageLoading from "../components/PageLoading";
 import PageError from "../components/PageError";
 
-class BadgeDetailsContainer extends React.Component {
+class EpisodesDetailContainer extends React.Component {
 	state = {
 		loading: true,
 		error: null,
@@ -13,7 +13,7 @@ class BadgeDetailsContainer extends React.Component {
 
 	componentDidMount() {
 		fetch(
-			`https://www.breakingbadapi.com/api/characters/${this.props.match.params.char_id}`
+			`https://www.breakingbadapi.com/api/episodes/${this.props.match.params.episode_id}`
 		)
 			.then((res) => res.json())
 			.then(
@@ -41,8 +41,8 @@ class BadgeDetailsContainer extends React.Component {
 			return <PageError error={this.state.error} />;
 		}
 
-		return <BadgeDetails badge={this.state.data} />;
+		return <EpisodeDetails badge={this.state.data} />;
 	}
 }
 
-export default BadgeDetailsContainer;
+export default EpisodesDetailContainer;

@@ -2,6 +2,7 @@
 	width: 100%;
 	padding: 0.5rem 0;
 	background-color: black;
+	align-items: center;
 }
 
 .Navbar__brand {
@@ -20,4 +21,17 @@
 	margin-right: 0.5rem;
 	height: 50px;
 	width: auto;
+}
+
+.button {
+	color: white;
+	padding: 0 2rem;
+	font-weight: 900;
+}
+
+.button:hover {
+	color: purple;
+	padding: 0 2rem;
+	text-decoration: underline;
+	cursor: pointer;
 }

@@ -1,12 +1,12 @@
 import React from "react";
 
 import "../components/styles/Badges.css";
-import BadgesList from "../components/BadgesList";
+import EpisodesList from "../components/EpisodesList";
 import PageLoading from "../components/PageLoading";
 import PageError from "../components/PageError";
 import MiniLoader from "../components/MiniLoader";
 
-class Badges extends React.Component {
+class Episodes extends React.Component {
 	state = {
 		loading: true,
 		error: null,
@@ -15,7 +15,7 @@ class Badges extends React.Component {
 	};
 
 	componentDidMount() {
-		fetch("https://www.breakingbadapi.com/api/characters")
+		fetch("https://www.breakingbadapi.com/api/episodes")
 			.then((res) => res.json())
 			.then(
 				(result) => {
@@ -32,7 +32,7 @@ class Badges extends React.Component {
 				}
 			);
 
-		/* Random quotes are not used because the api fails sometimes
+		/* 			Random quotes are not used because the api fails sometimes
 		 */ fetch("https://www.breakingbadapi.com/api/quote/random")
 			.then((res) => res.json())
 			.then((result) => {
@@ -55,12 +55,12 @@ class Badges extends React.Component {
 			<React.Fragment>
 				<div className="Badges">
 					<div className="Badges__hero">
-						<h1>Characetrs</h1>
+						<h1>Episodes</h1>
 					</div>
 				</div>
 
 				<div className="Badges__container">
-					<BadgesList badges={this.state.data} />
+					<EpisodesList badges={this.state.data} />
 
 					{this.state.loading && <MiniLoader />}
 				</div>
@@ -69,4 +69,4 @@ class Badges extends React.Component {
 	}
 }
 
-export default Badges;
+export default Episodes;

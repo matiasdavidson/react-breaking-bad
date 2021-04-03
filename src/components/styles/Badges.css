@@ -1,10 +1,13 @@
 .Badges__hero {
 	width: 100%;
-	padding: 2rem 0;
+	padding: 2rem;
 	background: url("../../images/navbar-walpaper.png"), #1b1b25;
 	background-repeat: repeat;
-	margin-bottom: 1rem;
 	min-height: 150px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	display: flex;
 }
 
 .Badges__hero > .Badges__container {
@@ -13,11 +16,16 @@
 	align-items: center;
 }
 
+.Badges__hero span {
+	font-size: 1.6rem;
+	color: black;
+}
+
 .Badges__container {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 1rem;
-	background: black;
+	background: white;
 }
 
 .Badges_bb-logo {
@@ -29,4 +37,8 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-bottom: 1rem;
+}
+
+.quote-text {
+	font-style: italic;
 }
