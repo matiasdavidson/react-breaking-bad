@@ -32,7 +32,7 @@ class Badges extends React.Component {
 				}
 			);
 
-		/* Random quotes are not used because the api fails sometimes
+		/* Random quotes are not used because the api fails sometimes.
 		 */ fetch("https://www.breakingbadapi.com/api/quote/random")
 			.then((res) => res.json())
 			.then((result) => {
