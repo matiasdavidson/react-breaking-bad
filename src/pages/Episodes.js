@@ -11,7 +11,6 @@ class Episodes extends React.Component {
 		loading: true,
 		error: null,
 		data: undefined,
-		quote: undefined,
 	};
 
 	componentDidMount() {
